@@ -1,0 +1,21 @@
+.wordContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  overflow: hidden;
+  white-space: nowrap;
+  .animatedContainer {
+    display: inline-flex;
+    word-wrap: nowrap;
+    .animatedWord {
+      display: inline-block;
+    }
+  }
+  .loveEmojiContainer {
+    display: inline-flex;
+    .loveEmoji {
+      width: 1em;
+      height: auto;
+    }
+  }
+}

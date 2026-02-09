@@ -1,11 +1,103 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import icon from '../assets/icon.png';
+import HiEmoji from '../assets/1f44b.svg';
+import WordRotator from '../components/WordRotator.jsx';
 ---
 
 <Layout>
-	<Welcome />
+	<header>
+		<div class="header-content">
+			<img src={icon.src} alt="hato810424's website" width="32" height="32" />
+			<span>hato810424's website</span>
+		</div>
+	</header>
+	<section class="hero">
+		<div class="hero-content">
+			<h1>Hi<HiEmoji height={48} width={48} /> I'm Hato</h1>
+			<p>Web Developer / Programmer</p>
+			<div class="word-rotator">
+				<WordRotator client:load />
+			</div>
+		</div>
+	</section>
+	<div class="container">
+		<h2>Projects</h2>
+		<ul>
+			{Array.from({ length: 20 }).map((_, index) => (
+				<li>
+					<p><a href={`https://github.com/hato810424/project-${index}`}>Project {index}</a></p>
+					<p>Description of the project</p>
+				</li>
+			))}
+		</ul>
+	</div>
 </Layout>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+	header {
+		top: 0;
+		left: 0;
+		right: 0;
+		position: fixed;
+		z-index: 999;
+		padding: 12px;
+		background-color: color-mix(in srgb, var(--oc-gray-9) 80%, transparent);
+		backdrop-filter: blur(10px);
+		.header-content {
+			@include container('md');
+
+			color: var(--oc-white);
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			img {
+				border-radius: 50%;
+			}
+		}
+	}
+
+	.hero {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(135deg, var(--oc-violet-6), var(--oc-indigo-6));
+		color: var(--oc-white);
+
+		.hero-content {
+			margin: 0 auto;
+			h1 {
+				font-size: 7rem;
+				font-weight: 700;
+				margin: 0;
+				letter-spacing: -0.02em;
+				line-height: 0.9;
+				svg {
+					margin-left: 0.5rem;
+					height: 0.8em;
+					width: auto;
+				}
+			}
+			p {
+				margin: 0;
+				font-size: 2.3rem;
+				line-height: 0.9;
+			}
+		}
+		.word-rotator {
+			text-align: center;
+			margin-top: 2rem;
+			font-size: 1.3rem;
+		}
+	}
+
+	.container {
+		flex: 1;
+		padding: 12px;
+		@include container('md');
+	}
+</style>

@@ -1,11 +1,16 @@
+---
+import '../styles/open-color.css';
+import '@fontsource-variable/inter';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>hato810424's website</title>
 	</head>
 	<body>
 		<slot />
@@ -13,10 +18,20 @@
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+html {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'Inter Variable', 'Noto Sans JP', sans-serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background: var(--oc-gray-0);
+}
+	
+* {
+	box-sizing: border-box;
+}
 </style>
