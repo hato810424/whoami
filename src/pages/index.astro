@@ -1,37 +1,190 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import icon from '../assets/icon.png';
-import HiEmoji from '../assets/1f44b.svg';
+import { SquareArrowOutUpRight } from 'lucide-react';
 import WordRotator from '../components/WordRotator.jsx';
+import { GitHubCalendar } from 'react-github-calendar';
+
+import HiEmoji from '../assets/twemoji/1f44b.svg';
+import GameEmoji from '../assets/twemoji/1f3ae.svg';
+import ComputerEmoji from '../assets/twemoji/1f4bb.svg';
+import LightbulbEmoji from '../assets/twemoji/1f4a1.svg';
+import VideoEmoji from '../assets/twemoji/1f4f9.svg';
+import BackgroundImage from "../assets/code.jpg";
+
+import KeizaiyaImage from "../assets/works/keizaiya.png";
+import BadMikuImage from "../assets/works/bad-mikuji.png";
+import McResourcesImage from "../assets/works/mc-resources.png";
+
 ---
 
-<Layout>
+<Layout description="主にReact、Bukkitなどを独学でｶﾀｶﾀしてる、Web系の技術だいすきマンです。">
 	<header>
 		<div class="header-content">
-			<img src={icon.src} alt="hato810424's website" width="32" height="32" />
 			<span>hato810424's website</span>
 		</div>
 	</header>
-	<section class="hero">
+	<div class="hero">
+		<div class="background-image">
+			<img src={BackgroundImage.src} />
+		</div>
 		<div class="hero-content">
-			<h1>Hi<HiEmoji height={48} width={48} /> I'm Hato</h1>
+			<h1>Hi<HiEmoji height={48} width={48} class="emoji" /> <wbr />I'm Hato</h1>
 			<p>Web Developer / Programmer</p>
 			<div class="word-rotator">
 				<WordRotator client:load />
 			</div>
 		</div>
-	</section>
-	<div class="container">
-		<h2>Projects</h2>
-		<ul>
-			{Array.from({ length: 20 }).map((_, index) => (
-				<li>
-					<p><a href={`https://github.com/hato810424/project-${index}`}>Project {index}</a></p>
-					<p>Description of the project</p>
-				</li>
-			))}
-		</ul>
 	</div>
+	<section class="whoami">
+		<h2>Whoami?</h2>
+		<div class="whoami-card">
+			<div class="whoami-avatar">
+				<Image src={icon} alt="hato810424's website" width="128" height="128" />
+			</div>
+			<div class="whoami-content">
+				<h3>hato810424 (はと)</h3>
+				<p>
+					主にReact、Bukkitなどを独学でｶﾀｶﾀしてる、<br/>
+					Web系の技術だいすきマンです。
+				</p>
+				<div class="whoami-social">
+					<a aria-label="GitHub" href="https://github.com/hato810424" target="_blank">
+						<svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0 0 0)">
+							<path d="M12 2.24902C6.51613 2.24902 2 6.70064 2 12.249C2 16.6361 4.87097 20.3781 8.87097 21.7329C9.3871 21.8297 9.54839 21.5071 9.54839 21.2813C9.54839 21.0555 9.54839 20.4103 9.51613 19.5393C6.74194 20.1845 6.16129 18.1845 6.16129 18.1845C5.70968 17.0555 5.03226 16.7329 5.03226 16.7329C4.12903 16.0877 5.06452 16.0877 5.06452 16.0877C6.06452 16.12 6.6129 17.12 6.6129 17.12C7.48387 18.6684 8.96774 18.2168 9.51613 17.9264C9.6129 17.2813 9.87097 16.8297 10.1613 16.5716C7.96774 16.3458 5.6129 15.4748 5.6129 11.6684C5.6129 10.5716 6.03226 9.70064 6.64516 9.02322C6.54839 8.79741 6.19355 7.76515 6.74194 6.37806C6.74194 6.37806 7.6129 6.11999 9.51613 7.41031C10.3226 7.18451 11.1613 7.05548 12.0323 7.05548C12.9032 7.05548 13.7742 7.15225 14.5484 7.41031C16.4516 6.15225 17.2903 6.37806 17.2903 6.37806C17.8387 7.73289 17.5161 8.79741 17.3871 9.02322C18.0323 9.70064 18.4194 10.6039 18.4194 11.6684C18.4194 15.4748 16.0645 16.3458 13.871 16.5716C14.2258 16.8942 14.5484 17.5393 14.5484 18.4426C14.5484 19.7974 14.5161 20.8619 14.5161 21.1845C14.5161 21.4426 14.7097 21.7329 15.1935 21.6361C19.129 20.3135 22 16.6039 22 12.1845C21.9677 6.70064 17.4839 2.24902 12 2.24902Z" fill="#343C54"/>
+						</svg>
+					</a>
+					<a aria-label="Twitter (x.com)" href="https://x.com/hato810424" target="_blank">
+						<svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0 0 0)">
+							<path d="M8.22581 20.1937C15.8387 20.1937 19.9677 13.9034 19.9677 8.4518C19.9677 8.32277 19.9677 8.09696 19.9355 7.90341C20.7419 7.32277 21.4516 6.58083 22 5.77438C21.2258 6.12922 20.4516 6.32277 19.6452 6.41954C20.5161 5.90341 21.1613 5.09696 21.4516 4.12922C20.6452 4.58083 19.8065 4.93567 18.8065 5.12922C18.0323 4.32277 17 3.80664 15.8065 3.80664C13.5161 3.80664 11.6452 5.67761 11.6452 7.96793C11.6452 8.29051 11.6774 8.61309 11.7419 8.93567C8.41935 8.70986 5.3871 7.0647 3.32258 4.58083C2.96774 5.22599 2.77419 5.90341 2.77419 6.64535C2.77419 8.09696 3.51613 9.32277 4.64516 10.0647C3.96774 10.0324 3.32258 9.8389 2.77419 9.54857C2.77419 9.58083 2.77419 9.58083 2.77419 9.58083C2.77419 11.5486 4.19355 13.2583 6.06452 13.6453C5.70968 13.7421 5.32258 13.7744 5.03226 13.7744C4.77419 13.7744 4.48387 13.7421 4.25806 13.6776C4.80645 15.3228 6.32258 16.5163 8.12903 16.5486C6.70968 17.6453 4.93548 18.3228 3.03226 18.3228C2.64516 18.3873 2.32258 18.3228 2 18.2905C3.74194 19.5163 5.90323 20.1937 8.22581 20.1937Z" fill="#343C54"/>
+						</svg>
+					</a>
+					<a aria-label="Discord" href="https://discord.com/users/413267983171977218" target="_blank">
+						<svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M18.9419 5.55541C17.6473 4.94967 16.263 4.50945 14.8158 4.25879C14.638 4.58013 14.4304 5.01234 14.2872 5.35616C12.7488 5.1248 11.2244 5.1248 9.71431 5.35616C9.57116 5.01234 9.35878 4.58013 9.17947 4.25879C7.73069 4.50945 6.34478 4.95129 5.05016 5.5586C2.43887 9.5046 1.73099 13.3526 2.08493 17.1459C3.81688 18.4393 5.49534 19.225 7.14547 19.7391C7.55291 19.1784 7.91628 18.5823 8.22931 17.9541C7.63313 17.7276 7.06209 17.448 6.52256 17.1235C6.66569 17.0174 6.80572 16.9066 6.94097 16.7925C10.2318 18.3317 13.8074 18.3317 17.0589 16.7925C17.1958 16.9066 17.3358 17.0174 17.4774 17.1235C16.9362 17.4496 16.3637 17.7292 15.7675 17.9557C16.0805 18.5823 16.4423 19.18 16.8513 19.7407C18.503 19.2266 20.1831 18.4409 21.915 17.1459C22.3303 12.7485 21.2056 8.93585 18.9419 5.55541ZM8.67766 14.8131C7.68978 14.8131 6.87963 13.8908 6.87963 12.7678C6.87963 11.6447 7.67247 10.7209 8.67766 10.7209C9.68284 10.7209 10.493 11.6431 10.4757 12.7678C10.4772 13.8908 9.68284 14.8131 8.67766 14.8131ZM15.3223 14.8131C14.3344 14.8131 13.5243 13.8908 13.5243 12.7678C13.5243 11.6447 14.3171 10.7209 15.3223 10.7209C16.3275 10.7209 17.1376 11.6431 17.1203 12.7678C17.1203 13.8908 16.3275 14.8131 15.3223 14.8131Z" fill="#323544"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="github-calendar">
+			<GitHubCalendar
+			  username="hato810424"
+				blockSize={10}
+				blockMargin={3}
+				fontSize={12}
+				client:only
+			/>
+		</div>
+	</section>
+	<section class="works">
+		<h2>Works</h2>
+		<div class="works-grid">
+			<div class="works-card">
+				<div class="works-card-image">
+					<Image src={KeizaiyaImage} alt="keizaiya.com" />
+				</div>
+				<div class="works-card-content">
+					<h3>keizaiya.com</h3>
+					<p>
+						Minecraftマルチサーバー「keizaiya.com」で技術者してます
+					</p>
+					<div class="works-tags">
+						<span class="tag">Web Development</span>
+						<span class="tag">Plugin</span>
+						<span class="tag">Minecraft</span>
+						<span class="tag">Infra</span>
+					</div>
+				</div>
+				<div class="works-card-links">
+					<a href="https://keizaiya.com" target="_blank" rel="noopener noreferrer" class="link-button">
+						<span>みてみる</span>
+						<SquareArrowOutUpRight size="1em" />
+					</a>
+				</div>
+			</div>
+			<div class="works-card">
+				<div class="works-card-image">
+					<Image src={BadMikuImage} alt="Bad Mikuji" />
+				</div>
+				<div class="works-card-content">
+					<h3>神の導き</h3>
+					<p>
+					  大凶しか出ないおみくじ
+					</p>
+					<div class="works-tags">
+						<span class="tag">Vite</span>
+						<span class="tag">React</span>
+					</div>
+				</div>
+				<div class="works-card-links">
+					<a href="https://bad-omikuji.pages.dev/" target="_blank" rel="noopener noreferrer" class="link-button">
+						<span>おみくじを引く</span>
+						<SquareArrowOutUpRight size="1em" />
+					</a>
+				</div>
+			</div>
+			<div class="works-card">
+				<div class="works-card-image">
+					<Image src={McResourcesImage} alt="McResources" />
+				</div>
+				<div class="works-card-content">
+					<h3>@hato810424/mc-resources-plugin</h3>
+					<p>
+					  MinecraftのリソースパックをWebで使用しやすくするVite, Webpack, Docusaurusプラグイン
+					</p>
+					<div class="works-tags">
+						<span class="tag">TypeScript</span>
+						<span class="tag">Minecraft</span>
+					</div>
+				</div>
+				<div class="works-card-links">
+					<a href="https://www.npmjs.com/package/@hato810424/mc-resources-plugin" target="_blank" rel="noopener noreferrer" class="link-button">
+						<span>みてみる</span>
+						<SquareArrowOutUpRight size="1em" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="hobbies">
+		<h2>Hobbies</h2>
+		<div class="hobbies-list">
+			<div class="hobby-tag">
+				<span class="hobby-icon"><GameEmoji height={32} width={32} /></span>
+				<div class="hobby-content">
+					<span class="hobby-title">ゲーム</span>
+					<span class="hobby-detail">Minecraft、ステラソラ、ゼンゼロ etc.</span>
+				</div>
+			</div>
+			<div class="hobby-tag">
+				<span class="hobby-icon"><ComputerEmoji height={32} width={32} /></span>
+				<div class="hobby-content">
+					<span class="hobby-title">プログラミング</span>
+					<span class="hobby-detail">た　の　し　い</span>
+				</div>
+			</div>
+			<div class="hobby-tag">
+				<span class="hobby-icon"><LightbulbEmoji height={32} width={32} /></span>
+				<div class="hobby-content">
+					<span class="hobby-title">音響・照明</span>
+					<span class="hobby-detail">かっちょいい裏方すき</span>
+				</div>
+			</div>
+			<div class="hobby-tag">
+				<span class="hobby-icon"><VideoEmoji height={32} width={32} /></span>
+				<div class="hobby-content">
+					<span class="hobby-title">画像・動画編集</span>
+					<span class="hobby-detail">PVとかポスターとかつくりたくなる。Aviutl、Affinity</span>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<span class="footer-copyright">Copyright hato810424. All rights reserved.</span>
+		<span class="footer-emoji-license">Emoji by <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener noreferrer">Twemoji</a> (Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC-BY 4.0</a>)</span>
+	</footer>
 </Layout>
 
 <style lang="scss">
@@ -44,18 +197,29 @@ import WordRotator from '../components/WordRotator.jsx';
 		position: fixed;
 		z-index: 999;
 		padding: 12px;
-		background-color: color-mix(in srgb, var(--oc-gray-9) 80%, transparent);
-		backdrop-filter: blur(10px);
+		background-color: color-mix(in srgb, var(--oc-indigo-3) 20%, transparent);
+		backdrop-filter: blur(8px);
+
+		animation: colorChange linear both;
+		animation-timeline: scroll();
+		animation-range: 90vh 100vh;
+		@keyframes colorChange {
+			from {
+				background-color: color-mix(in srgb, var(--oc-indigo-3) 10%, transparent);
+				border-bottom: 1px solid transparent;
+				color: var(--oc-white);
+			}
+			to {
+				background-color: color-mix(in srgb, var(--oc-indigo-1) 10%, transparent);
+				border-bottom: 1px solid var(--oc-gray-3);
+				color: var(--oc-black);
+			}
+		}
+
 		.header-content {
 			@include container('md');
 
-			color: var(--oc-white);
-			display: flex;
-			align-items: center;
-			gap: 12px;
-			img {
-				border-radius: 50%;
-			}
+			padding: 4px 0;
 		}
 	}
 
@@ -65,39 +229,328 @@ import WordRotator from '../components/WordRotator.jsx';
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		background: linear-gradient(135deg, var(--oc-violet-6), var(--oc-indigo-6));
+		background: linear-gradient(222deg, rgba(111, 121, 213, 0.5), rgba(198, 246, 254, 0.1));
 		color: var(--oc-white);
+		padding: 0 1rem;
 
+		.background-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
 		.hero-content {
 			margin: 0 auto;
+			white-space: nowrap;
+			word-break: auto-phrase;
+
 			h1 {
-				font-size: 7rem;
+				font-size: 3.6rem;
 				font-weight: 700;
 				margin: 0;
 				letter-spacing: -0.02em;
-				line-height: 0.9;
-				svg {
-					margin-left: 0.5rem;
-					height: 0.8em;
-					width: auto;
+				line-height: 1;
+				
+				@include breakpoint('sm') {
+					font-size: 5.5rem;
+					line-height: 0.9;
+				}
+				
+				@include breakpoint('md') {
+					font-size: 7rem;
 				}
 			}
 			p {
 				margin: 0;
-				font-size: 2.3rem;
-				line-height: 0.9;
+				font-size: 1.3rem;
+				line-height: 1;
+				
+				@include breakpoint('sm') {
+					font-size: 1.8rem;
+					line-height: 0.9;
+					margin-top: 0.5rem;
+				}
+				
+				@include breakpoint('md') {
+					font-size: 2.3rem;
+				}
 			}
 		}
 		.word-rotator {
 			text-align: center;
-			margin-top: 2rem;
-			font-size: 1.3rem;
+			margin-top: 1.5rem;
+			font-size: 1rem;
+			
+			@include breakpoint('sm') {
+				margin-top: 2rem;
+				font-size: 1.2rem;
+			}
+			
+			@include breakpoint('md') {
+				font-size: 1.3rem;
+			}
 		}
 	}
 
-	.container {
-		flex: 1;
-		padding: 12px;
+	section {
+		padding: 4rem 0;
+		h2 {
+			font-size: 2rem;
+			font-weight: normal;
+			margin: 0;
+			letter-spacing: -0.02em;
+			line-height: 0.9;
+			margin-bottom: 2rem;
+		}
+	}
+
+	.whoami {
 		@include container('md');
+
+		.whoami-card {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1rem;
+			margin-bottom: 5rem;
+			.whoami-avatar {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50%;
+				padding: 6px;
+				outline: 3px solid var(--oc-gray-3);
+				outline-offset: -3px;
+				img {
+					border-radius: 50%;
+				}
+			}
+			.whoami-content {
+				h3 {
+					font-size: 1.5rem;
+					font-weight: normal;
+					margin: 0;
+					letter-spacing: -0.02em;
+					line-height: 0.9;
+				}
+
+				.whoami-social {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1rem;
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					svg {
+						width: 32px;
+						height: 32px;
+					}
+				}
+			}
+			}
+		}
+		.github-calendar {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 2rem;
+		}
+	}
+
+	.works {
+		@include container('md');
+
+		.works-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 2rem;
+		}
+
+		.works-card {
+			display: flex;
+			flex-direction: column;
+			background: var(--oc-white);
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			text-decoration: none;
+			color: inherit;
+
+			&:hover {
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+
+				.works-card-image img {
+					transform: scale(1.08);
+				}
+			}
+
+			.works-card-image {
+				position: relative;
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				overflow: hidden;
+				background: var(--oc-gray-1);
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+					transform: scale(1.03);
+				}
+			}
+
+			.works-card-content {
+				padding: 1.5rem;
+				padding-bottom: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+				flex: 1;
+
+				h3 {
+					font-size: 1.25rem;
+					font-weight: 600;
+					margin: 0;
+					line-height: 1.3;
+					color: var(--oc-gray-9);
+				}
+
+				p {
+					margin: 0;
+					color: var(--oc-gray-6);
+					line-height: 1.6;
+					font-size: 0.95rem;
+				}
+
+				.works-tags {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.5rem;
+
+					.tag {
+						padding: 0.25rem 0.75rem;
+						background: var(--oc-indigo-0);
+						color: var(--oc-indigo-7);
+						border-radius: 999px;
+						font-size: 0.85rem;
+						font-weight: 500;
+					}
+				}
+			}
+			.works-card-links {
+				padding: 0 1.5rem;
+				padding-bottom: 1.5rem;
+				display: flex;
+				justify-content: flex-end;
+				gap: 0.75rem;
+				margin-top: 1rem;
+
+				.link-button {
+					display: inline-flex;
+					align-items: center;
+					gap: 0.5rem;
+					padding: 0.65rem 1.25rem;
+					background: linear-gradient(135deg, var(--oc-indigo-6), var(--oc-indigo-7));
+					color: white;
+					text-decoration: none;
+					border-radius: 8px;
+					font-weight: 600;
+					font-size: 0.9rem;
+					transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+					&:hover {
+						background: linear-gradient(135deg, var(--oc-indigo-7), var(--oc-indigo-8));
+						transform: translateY(-2px);
+					}
+
+					&:active {
+						transform: translateY(0);
+					}
+				}
+			}
+		}
+	}
+
+	.hobbies {
+		@include container('md');
+
+		.hobbies-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+
+		.hobby-tag {
+			display: flex;
+			align-items: flex-start;
+			gap: 0.75rem;
+			padding: 1rem 1.5rem;
+			background: var(--oc-white);
+			border: 2px solid var(--oc-gray-3);
+			border-radius: 16px;
+			transition: all 0.2s ease;
+			cursor: default;
+			flex: 1;
+			min-width: 280px;
+
+			.hobby-icon {
+				font-size: 2rem;
+				line-height: 1;
+				flex-shrink: 0;
+			}
+
+			.hobby-content {
+				display: flex;
+				flex-direction: column;
+				gap: 0.25rem;
+
+				.hobby-title {
+					color: var(--oc-gray-9);
+					font-weight: 600;
+					font-size: 1rem;
+				}
+
+				.hobby-detail {
+					color: var(--oc-gray-6);
+					font-size: 0.875rem;
+					line-height: 1.5;
+				}
+			}
+		}
+	}
+
+	footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 1rem 0;
+		background: var(--oc-gray-9);
+
+		span {
+			font-size: 0.8rem;
+			color: var(--oc-gray-5);
+		}
+		
+		a {
+			color: var(--oc-indigo-6);
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 </style>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import styles from './WordRotator.module.scss';
 
-import LoveEmoji from '../assets/1f970.svg';
+import LoveEmoji from '../assets/twemoji/1f970.svg';
 
 export default function WordRotator() {
   const words = ['TypeScript', 'React', 'Laravel', 'Minecraft', 'Docker'];
@@ -55,7 +55,7 @@ export default function WordRotator() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <img src={LoveEmoji.src} className={styles.loveEmoji} alt="Love Emoji" />
+        <img src={LoveEmoji.src} className="emoji" alt="Love Emoji" />
       </motion.div>
     </motion.div>
   );
