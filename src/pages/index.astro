@@ -12,6 +12,7 @@ import GameEmoji from '../assets/twemoji/1f3ae.svg';
 import ComputerEmoji from '../assets/twemoji/1f4bb.svg';
 import LightbulbEmoji from '../assets/twemoji/1f4a1.svg';
 import VideoEmoji from '../assets/twemoji/1f4f9.svg';
+import HandshakeEmoji from '../assets/twemoji/1f60b.svg';
 import BackgroundImage from "../assets/code.jpg";
 
 import KeizaiyaImage from "../assets/works/keizaiya.png";
@@ -185,6 +186,25 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 				</div>
 			</div>
 		</div>
+	</section>
+	<section class="contact">
+		<h2>Contact</h2>
+		<p>なにかあったらこちらまでどうぞ<HandshakeEmoji height="1em" class="contact-emoji" /></p>
+		<div class="contact-links">
+			<a href="https://x.com/hato810424" target="_blank" rel="noopener noreferrer" class="contact-link twitter">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.22581 20.1937C15.8387 20.1937 19.9677 13.9034 19.9677 8.4518C19.9677 8.32277 19.9677 8.09696 19.9355 7.90341C20.7419 7.32277 21.4516 6.58083 22 5.77438C21.2258 6.12922 20.4516 6.32277 19.6452 6.41954C20.5161 5.90341 21.1613 5.09696 21.4516 4.12922C20.6452 4.58083 19.8065 4.93567 18.8065 5.12922C18.0323 4.32277 17 3.80664 15.8065 3.80664C13.5161 3.80664 11.6452 5.67761 11.6452 7.96793C11.6452 8.29051 11.6774 8.61309 11.7419 8.93567C8.41935 8.70986 5.3871 7.0647 3.32258 4.58083C2.96774 5.22599 2.77419 5.90341 2.77419 6.64535C2.77419 8.09696 3.51613 9.32277 4.64516 10.0647C3.96774 10.0324 3.32258 9.8389 2.77419 9.54857C2.77419 9.58083 2.77419 9.58083 2.77419 9.58083C2.77419 11.5486 4.19355 13.2583 6.06452 13.6453C5.70968 13.7421 5.32258 13.7744 5.03226 13.7744C4.77419 13.7744 4.48387 13.7421 4.25806 13.6776C4.80645 15.3228 6.32258 16.5163 8.12903 16.5486C6.70968 17.6453 4.93548 18.3228 3.03226 18.3228C2.64516 18.3873 2.32258 18.3228 2 18.2905C3.74194 19.5163 5.90323 20.1937 8.22581 20.1937Z" fill="currentColor"/>
+				</svg>
+				<span>Twitter (@hato810424)</span>
+			</a>
+			<a href="https://discord.com/users/413267983171977218" target="_blank" rel="noopener noreferrer" class="contact-link discord">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M18.9419 5.55541C17.6473 4.94967 16.263 4.50945 14.8158 4.25879C14.638 4.58013 14.4304 5.01234 14.2872 5.35616C12.7488 5.1248 11.2244 5.1248 9.71431 5.35616C9.57116 5.01234 9.35878 4.58013 9.17947 4.25879C7.73069 4.50945 6.34478 4.95129 5.05016 5.5586C2.43887 9.5046 1.73099 13.3526 2.08493 17.1459C3.81688 18.4393 5.49534 19.225 7.14547 19.7391C7.55291 19.1784 7.91628 18.5823 8.22931 17.9541C7.63313 17.7276 7.06209 17.448 6.52256 17.1235C6.66569 17.0174 6.80572 16.9066 6.94097 16.7925C10.2318 18.3317 13.8074 18.3317 17.0589 16.7925C17.1958 16.9066 17.3358 17.0174 17.4774 17.1235C16.9362 17.4496 16.3637 17.7292 15.7675 17.9557C16.0805 18.5823 16.4423 19.18 16.8513 19.7407C18.503 19.2266 20.1831 18.4409 21.915 17.1459C22.3303 12.7485 21.2056 8.93585 18.9419 5.55541ZM8.67766 14.8131C7.68978 14.8131 6.87963 13.8908 6.87963 12.7678C6.87963 11.6447 7.67247 10.7209 8.67766 10.7209C9.68284 10.7209 10.493 11.6431 10.4757 12.7678C10.4772 13.8908 9.68284 14.8131 8.67766 14.8131ZM15.3223 14.8131C14.3344 14.8131 13.5243 13.8908 13.5243 12.7678C13.5243 11.6447 14.3171 10.7209 15.3223 10.7209C16.3275 10.7209 17.1376 11.6431 17.1203 12.7678C17.1203 13.8908 16.3275 14.8131 15.3223 14.8131Z" fill="currentColor"/>
+				</svg>
+				<span>Discord (@hato810424)</span>
+			</a>
+		</div>
+	</section>
 	</section>
 	<footer>
 		<span class="footer-copyright">Copyright hato810424. All rights reserved.</span>
@@ -544,6 +564,117 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 					line-height: 1.5;
 				}
 			}
+		}
+	}
+
+	.contact {
+		@include container('md');
+		position: relative;
+		overflow: hidden;
+
+		h2 {
+			margin: 0;
+		}
+		p {
+			font-size: 1rem;
+			margin: 0;
+			color: var(--oc-gray-7);
+			margin-bottom: 2rem;
+			.contact-emoji {
+				height: 1em;
+				width: 1em;
+				margin: 0 .05em 0 .1em;
+				vertical-align: -0.1em;
+			}
+		}
+
+		.contact-links {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1.5rem;
+			position: relative;
+			z-index: 1;
+		}
+
+		.contact-link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1rem;
+			padding: 1.2rem 2.5rem;
+			background: rgba(255, 255, 255, 0.7);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			border-radius: 50px;
+			text-decoration: none;
+			color: var(--oc-gray-8);
+			font-weight: 600;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			width: 100%;
+			max-width: 360px;
+			box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+			position: relative;
+
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				border-radius: 50px;
+				padding: 2px;
+				background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				opacity: 0.5;
+			}
+
+			&:hover {
+				box-shadow: 0 15px 45px rgba(31, 38, 135, 0.12);
+				background: rgba(255, 255, 255, 0.9);
+			}
+
+			&.twitter {
+				&:hover {
+					color: #1da1f2;
+					border-color: rgba(29, 161, 242, 0.3);
+				}
+			}
+
+			&.discord {
+				&:hover {
+					color: #5865f2;
+					border-color: rgba(88, 101, 242, 0.3);
+				}
+			}
+
+			svg {
+				flex-shrink: 0;
+				transition: transform 0.3s ease;
+			}
+		}
+
+		// 背景にふわふわした装飾を追加
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 300px;
+			height: 300px;
+			background: radial-gradient(circle, var(--oc-indigo-1) 0%, transparent 70%);
+			filter: blur(50px);
+			z-index: 0;
+			opacity: 0.5;
+			pointer-events: none;
+			animation: float 10s infinite alternate ease-in-out;
+		}
+
+		@keyframes float {
+			0% { transform: translate(-60%, -40%) scale(1); }
+			100% { transform: translate(-40%, -60%) scale(1.2); }
 		}
 	}
 
