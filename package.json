@@ -10,10 +10,10 @@
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@fontsource-variable/inter": "^5.2.8",
+    "@tabler/icons-react": "^3.36.1",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
     "astro": "^5.16.11",
-    "lucide-react": "^0.563.0",
     "motion": "^12.34.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",

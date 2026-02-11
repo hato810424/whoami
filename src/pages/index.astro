@@ -2,9 +2,10 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import icon from '../assets/icon.png';
-import { SquareArrowOutUpRight } from 'lucide-react';
+import { IconExternalLink } from '@tabler/icons-react';
 import WordRotator from '../components/WordRotator.jsx';
 import { GitHubCalendar } from 'react-github-calendar';
+import FavoriteStacks from '../components/FavoriteStacks.tsx';
 
 import HiEmoji from '../assets/twemoji/1f44b.svg';
 import GameEmoji from '../assets/twemoji/1f3ae.svg';
@@ -68,6 +69,10 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 				</div>
 			</div>
 		</div>
+		<div class="whoami-skills-container">
+			<h3 class="whoami-skills-title">好きな技術スタック</h3>
+			<FavoriteStacks client:load />
+		</div>
 		<div class="github-calendar">
 			<GitHubCalendar
 			  username="hato810424"
@@ -100,7 +105,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 				<div class="works-card-links">
 					<a href="https://keizaiya.com" target="_blank" rel="noopener noreferrer" class="link-button">
 						<span>みてみる</span>
-						<SquareArrowOutUpRight size="1em" />
+						<IconExternalLink size={"1.2em"} stroke={2} />
 					</a>
 				</div>
 			</div>
@@ -121,7 +126,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 				<div class="works-card-links">
 					<a href="https://bad-omikuji.pages.dev/" target="_blank" rel="noopener noreferrer" class="link-button">
 						<span>おみくじを引く</span>
-						<SquareArrowOutUpRight size="1em" />
+						<IconExternalLink size={"1.2em"} stroke={2} />
 					</a>
 				</div>
 			</div>
@@ -142,7 +147,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 				<div class="works-card-links">
 					<a href="https://www.npmjs.com/package/@hato810424/mc-resources-plugin" target="_blank" rel="noopener noreferrer" class="link-button">
 						<span>みてみる</span>
-						<SquareArrowOutUpRight size="1em" />
+						<IconExternalLink size={"1.2em"} stroke={2} />
 					</a>
 				</div>
 			</div>
@@ -319,7 +324,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 			align-items: center;
 			justify-content: center;
 			gap: 1rem;
-			margin-bottom: 5rem;
+			margin-bottom: 3rem;
 			.whoami-avatar {
 				display: flex;
 				align-items: center;
@@ -358,12 +363,23 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 			}
 			}
 		}
+		.whoami-skills-container {
+			@include container('xs');
+			margin-bottom: 3rem;
+			.whoami-skills-title {
+				font-size: 0.875rem;
+				font-weight: 700;
+				color: var(--oc-gray-7);
+				text-align: center;
+				margin: 0;
+				margin-bottom: 0.5rem;
+			}
+		}
 		.github-calendar {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			margin-bottom: 2rem;
 		}
 	}
 

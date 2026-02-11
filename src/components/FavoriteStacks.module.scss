@@ -1,0 +1,46 @@
+.favoriteStacks {
+  max-width: max-content;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  .stackCategory {
+    .stackCategoryTitle {
+      display: inline-block;
+      font-size: 0.750rem;
+      font-weight: 600;
+      color: var(--oc-gray-7);
+      margin: 0 0 0.5rem 0;
+      letter-spacing: 0;
+      line-height: 1.4;
+    }
+
+    .stackTags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .stackTag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--oc-gray-0);
+      color: var(--oc-gray-8);
+      border-radius: 6px;
+      font-size: 0.750rem;
+      font-weight: 500;
+      border: 1px solid var(--oc-gray-2);
+
+      span {
+        white-space: nowrap;
+      }
+      svg {
+        width: 18px;
+        height: auto;
+      }
+    }
+  }
+}
