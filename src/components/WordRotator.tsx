@@ -11,7 +11,7 @@ export default function WordRotator() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % words.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -52,8 +52,6 @@ export default function WordRotator() {
       <motion.div
         layout
         className={styles.loveEmojiContainer}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
       >
         <img src={LoveEmoji.src} className="emoji" alt="Love Emoji" />
       </motion.div>
