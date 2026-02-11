@@ -1,0 +1,31 @@
+<footer>
+  <span class="footer-copyright">Copyright hato810424. All rights reserved.</span>
+  <span class="footer-emoji-license">Emoji by <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener noreferrer">Twemoji</a> (Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC-BY 4.0</a>)</span>
+</footer>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+  
+  footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 1rem 0;
+		background: var(--oc-gray-9);
+
+		span {
+			font-size: 0.8rem;
+			color: var(--oc-gray-5);
+		}
+		
+		a {
+			color: var(--oc-indigo-6);
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+</style>

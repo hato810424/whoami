@@ -1,0 +1,53 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 Not Found / hato810424's website" description="ここにはなにもないみたいですよ" noIndex={true}>
+  <Header />
+  <div class="container">
+    <h1>ここにはなにもないみたいですよ</h1>
+    <p>代わりに、わたしが好きな曲を聴いてみませんか？</p>
+  </div>
+  <div class="favorite-song">
+    <div class="favorite-song-iframe">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/64qOvBXDFqQ?si=zY2YGNSyjiKVd5DZ"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        style={{
+          borderRadius: '12px',
+          border: 'none',
+        }}
+      ></iframe>
+    </div>
+  </div>
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+  .container {
+    @include container('md');
+    padding: 4rem 0;
+    h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      margin: 0;
+    }
+  }
+
+  .favorite-song {
+    @include container('sm');
+    flex: 1;
+    .favorite-song-iframe {
+      display: grid;
+      place-items: center;
+    }
+  }
+</style>

@@ -24,7 +24,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 <Layout description="主にReact、Minecraft Pluginなどを独学でｶﾀｶﾀしてる、Web系の技術だいすきマンです。">
 	<header>
 		<div class="header-content">
-			<span>hato810424's website</span>
+			<a href="/">hato810424's website</a>
 		</div>
 	</header>
 	<div class="hero">
@@ -209,6 +209,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 	<footer>
 		<span class="footer-copyright">Copyright hato810424. All rights reserved.</span>
 		<span class="footer-emoji-license">Emoji by <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener noreferrer">Twemoji</a> (Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC-BY 4.0</a>)</span>
+		<a href="/404-not-found">??????</a>
 	</footer>
 </Layout>
 
@@ -241,10 +242,25 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 			}
 		}
 
+		@keyframes textColorChange {
+			from {
+				color: var(--oc-white);
+			}
+			to {
+				color: var(--oc-black);
+			}
+		}
+
 		.header-content {
 			@include container('md');
 
 			padding: 4px 0;
+			a {
+				text-decoration: none;
+				animation: textColorChange linear both;
+				animation-timeline: scroll();
+				animation-range: 90vh 100vh;
+			}
 		}
 	}
 
