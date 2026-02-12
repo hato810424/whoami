@@ -13,6 +13,9 @@ import ComputerEmoji from '../assets/twemoji/1f4bb.svg';
 import LightbulbEmoji from '../assets/twemoji/1f4a1.svg';
 import VideoEmoji from '../assets/twemoji/1f4f9.svg';
 import HandshakeEmoji from '../assets/twemoji/1f60b.svg';
+
+// sqip -i "src/assets/code.jpg" -p primitive -p blur -p svgo
+import BackgroundImagePlaceholder from "../assets/code.svg";
 import BackgroundImage from "../assets/code.jpg";
 
 import KeizaiyaImage from "../assets/works/keizaiya.png";
@@ -30,6 +33,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 	<div class="hero">
 		<div class="background-image">
 			<img src={BackgroundImage.src} />
+			<img src={BackgroundImagePlaceholder.src} class="background-image-placeholder" />
 		</div>
 		<div class="hero-content">
 			<h1>Hi<HiEmoji height={48} width={48} class="emoji" /> <wbr />I'm Hato</h1>
@@ -273,6 +277,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 		background: linear-gradient(222deg, rgba(111, 121, 213, 0.5), rgba(198, 246, 254, 0.1));
 		color: var(--oc-white);
 		padding: 0 1rem;
+		position: relative;
 
 		.background-image {
 			position: absolute;
@@ -282,6 +287,18 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 			height: 100%;
 			z-index: -1;
 			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			.background-image-placeholder {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: -1;
+
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
