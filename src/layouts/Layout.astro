@@ -25,6 +25,7 @@ const noIndex = props.noIndex || true;
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url.toString()} />
+		{import.meta.env.PROD && <script defer src="https://trk.hato810424.f5.si/script.js" data-website-id="ebd24f3e-5d4a-40ef-826a-d8a4ebbc42e3"></script>}
 	</head>
 	<body>
 		<slot />
