@@ -1,0 +1,178 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import { getCommitFull, getCommitShort } from '../lib/commit';
+
+const commitShort = getCommitShort();
+const commitFull = getCommitFull();
+const builtAt = new Date().toLocaleString('ja-JP', {
+	dateStyle: 'long',
+	timeStyle: 'medium',
+	timeZone: 'Asia/Tokyo',
+});
+
+const repoUrl = 'https://github.com/hato810424/whoami';
+const commitRef = commitFull || commitShort;
+const commitUrl = commitRef ? `${repoUrl}/commit/${commitRef}` : repoUrl;
+---
+
+<Layout
+	title="Build info / hato810424's website"
+	description="このサイトをビルドしたときの記録です。"
+	noIndex={false}
+>
+	<Header />
+	<main class="buildinfo">
+		<div class="buildinfo-glow" aria-hidden="true"></div>
+		<section class="buildinfo-inner">
+			<h1 class="buildinfo-title">Build info</h1>
+			<dl class="buildinfo-list">
+				<div class="buildinfo-row">
+					<dt>Commit</dt>
+					<dd>
+						{
+							commitShort ? (
+								<a href={commitUrl} target="_blank" rel="noopener noreferrer" class="buildinfo-mono">
+									{commitShort}
+								</a>
+							) : (
+								<span class="buildinfo-muted">（取得できませんでした）</span>
+							)
+						}
+					</dd>
+				</div>
+				{
+					commitFull && commitFull !== commitShort && (
+						<div class="buildinfo-row">
+							<dt>Full</dt>
+							<dd>
+								<code class="buildinfo-mono buildinfo-full">{commitFull}</code>
+							</dd>
+						</div>
+					)
+				}
+				<div class="buildinfo-row">
+					<dt>Built at</dt>
+					<dd class="buildinfo-built">{builtAt}（JST）</dd>
+				</div>
+				<div class="buildinfo-row">
+					<dt>Repository</dt>
+					<dd>
+						<a href={repoUrl} target="_blank" rel="noopener noreferrer">{repoUrl}</a>
+					</dd>
+				</div>
+			</dl>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style lang="scss">
+	@use '../styles/breakpoints' as *;
+
+	.buildinfo {
+		position: relative;
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 3rem 1.25rem 4rem;
+		overflow: hidden;
+	}
+
+	.buildinfo-glow {
+		position: absolute;
+		inset: -40%;
+		background:
+			radial-gradient(ellipse 50% 40% at 50% 30%, color-mix(in srgb, var(--oc-indigo-3) 35%, transparent), transparent 55%),
+			radial-gradient(ellipse 40% 35% at 70% 70%, color-mix(in srgb, var(--oc-violet-3) 20%, transparent), transparent 50%);
+		pointer-events: none;
+	}
+
+	.buildinfo-inner {
+		@include container('sm');
+		position: relative;
+		max-width: 28rem;
+		padding: 2.25rem 1.75rem;
+		border-radius: 1.25rem;
+		background: color-mix(in srgb, var(--oc-gray-0) 88%, transparent);
+		border: 1px solid color-mix(in srgb, var(--oc-indigo-3) 25%, var(--oc-gray-3));
+		box-shadow:
+			0 1px 2px color-mix(in srgb, var(--oc-gray-9) 6%, transparent),
+			0 24px 48px -24px color-mix(in srgb, var(--oc-indigo-9) 18%, transparent);
+		backdrop-filter: blur(10px);
+	}
+
+	.buildinfo-title {
+		margin: 0 0 1.75rem;
+		font-size: 1.35rem;
+		font-weight: 500;
+		letter-spacing: 0.12em;
+		color: var(--oc-gray-9);
+	}
+
+	.buildinfo-list {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.buildinfo-row {
+		display: grid;
+		grid-template-columns: 6.5rem 1fr;
+		gap: 0.75rem 1rem;
+		align-items: baseline;
+		font-size: 0.9rem;
+
+		@media (max-width: 767px) {
+			grid-template-columns: 1fr;
+			gap: 0.35rem;
+		}
+	}
+
+	dt {
+		margin: 0;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		color: var(--oc-gray-6);
+	}
+
+	dd {
+		margin: 0;
+		word-break: break-all;
+	}
+
+	.buildinfo-mono {
+		font-family: ui-monospace, 'Cascadia Code', monospace;
+		font-size: 0.95rem;
+		letter-spacing: 0.04em;
+	}
+
+	code.buildinfo-full {
+		display: inline-block;
+		font-size: 0.75rem;
+		line-height: 1.5;
+		padding: 0.2rem 0.45rem;
+		border-radius: 0.35rem;
+		background: color-mix(in srgb, var(--oc-gray-3) 45%, transparent);
+	}
+
+	.buildinfo-built {
+		color: var(--oc-gray-8);
+	}
+
+	.buildinfo-muted {
+		color: var(--oc-gray-5);
+	}
+
+	a {
+		color: var(--oc-indigo-7);
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+</style>

@@ -6,6 +6,7 @@ import { IconExternalLink } from '@tabler/icons-react';
 import WordRotator from '../components/WordRotator.jsx';
 import { GitHubCalendar } from 'react-github-calendar';
 import FavoriteStacks from '../components/FavoriteStacks.tsx';
+import Footer from '../components/Footer.astro';
 
 import HiEmoji from '../assets/twemoji/1f44b.svg';
 import GameEmoji from '../assets/twemoji/1f3ae.svg';
@@ -231,11 +232,11 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 			</a>
 		</div>
 	</section>
-	<footer>
-		<span class="footer-copyright">Copyright hato810424. All rights reserved.</span>
-		<span class="footer-emoji-license">Emoji by <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener noreferrer">Twemoji</a> (Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC-BY 4.0</a>)</span>
-		<a href="/404-not-found">??????</a>
-	</footer>
+	<Footer>
+		<span>
+			<a href="/404-not-found">??????</a> / <a href="/devinfo">debug info</a>
+		</span>
+	</Footer>
 </Layout>
 
 <style lang="scss">
@@ -772,26 +773,4 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 		}
 	}
 
-	footer {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		padding: 1rem 0;
-		background: var(--oc-gray-9);
-
-		span {
-			font-size: 0.8rem;
-			color: var(--oc-gray-5);
-		}
-		
-		a {
-			color: var(--oc-indigo-6);
-			text-decoration: none;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-	}
 </style>
