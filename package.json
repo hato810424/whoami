@@ -21,6 +21,7 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
+    "@types/node": "^25.5.0",
     "sass-embedded": "^1.97.3"
   },
   "engines": {
