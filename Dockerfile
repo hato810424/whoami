@@ -1,6 +1,9 @@
 # Build stage
 FROM node:lts-alpine AS build
 
+# Astro ビルド時に commit.ts が git を叩くため
+RUN apk add --no-cache git
+
 # pnpmのインストール
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
