@@ -28,6 +28,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 	<header>
 		<div class="header-content">
 			<a href="/">hato810424's website</a>
+			<a href="#contact" class="header-contact">Contact</a>
 		</div>
 	</header>
 	<div class="hero">
@@ -163,7 +164,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 				<div class="works-card-content">
 					<h3>github-profile-summary-cards</h3>
 					<p>
-					  <a href="https://github.com/tipsy/profile-summary-for-github" target="_blank" rel="noopener noreferrer">tipsy/profile-summary-for-github</a>をCloudflare Workersでホストできるようにしたプロフィールカード
+					  [profile-summary-for-github](https://github.com/tipsy/profile-summary-for-github)をCloudflare Workersでホストできるようにしたプロフィールカード
 					</p>
 					<div class="works-tags">
 						<span class="tag">TypeScript</span>
@@ -212,7 +213,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 			</div>
 		</div>
 	</section>
-	<section class="contact">
+	<section id="contact" class="contact">
 		<h2>Contact</h2>
 		<p>なにかあったらこちらまでどうぞ<HandshakeEmoji height="1em" class="contact-emoji" /></p>
 		<div class="contact-links">
@@ -229,7 +230,6 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 				<span>Discord (@hato810424)</span>
 			</a>
 		</div>
-	</section>
 	</section>
 	<footer>
 		<span class="footer-copyright">Copyright hato810424. All rights reserved.</span>
@@ -279,12 +279,45 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 		.header-content {
 			@include container('md');
 
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
 			padding: 4px 0;
 			a {
 				text-decoration: none;
 				animation: textColorChange linear both;
 				animation-timeline: scroll();
 				animation-range: 90vh 100vh;
+			}
+
+			.header-contact {
+				position: relative;
+				flex-shrink: 0;
+				display: inline-flex;
+				align-items: center;
+				padding: 0.35rem 0.15rem;
+				font-size: 0.9rem;
+				font-weight: 600;
+
+				&::after {
+					content: '';
+					position: absolute;
+					left: 0;
+					bottom: 0.1rem;
+					height: 2px;
+					width: 100%;
+					transform: scaleX(0);
+					transform-origin: left;
+					transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+					border-radius: 1px;
+					background: linear-gradient(90deg, var(--oc-indigo-5), var(--oc-indigo-7));
+				}
+
+				&:hover::after,
+				&:focus-visible::after {
+					transform: scaleX(1);
+				}
 			}
 		}
 	}
