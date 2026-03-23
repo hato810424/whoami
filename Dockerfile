@@ -8,9 +8,14 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml* ./
 RUN pnpm install --frozen-lockfile
 COPY . .
+ARG GIT_COMMIT=
+ENV PUBLIC_GIT_COMMIT=${GIT_COMMIT}
 RUN pnpm run build
 
 # 出力用のステージ
-FROM alpine:latest
+FROM alpine:latest AS dist
+
+# ホストの nginx が配信する dist ディレクトリへコピーするために、ビルド成果物だけを取り出す
 COPY --from=build /app/dist /dist
+
 CMD ["/bin/sh"]

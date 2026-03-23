@@ -1,0 +1,35 @@
+name: Deploy (self-hosted docker)
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script_stop: true
+          script: |
+            set -e
+            DEPLOY_DIR="${{ secrets.DEPLOY_DIR }}"
+            if [ -z "$DEPLOY_DIR" ]; then
+              echo "DEPLOY_DIR secret is required."
+              exit 1
+            fi
+            cd "$DEPLOY_DIR"
+            git remote set-url origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+            git fetch -p
+            git pull --ff-only origin master
+            git remote set-url origin "https://github.com/${{ github.repository }}.git"
+            export GIT_COMMIT=$(git rev-parse --short HEAD)
+            docker compose down --remove-orphans || true
+            docker compose build --pull
+            docker compose run --rm whoami-dist
+
