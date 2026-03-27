@@ -4,26 +4,40 @@ import styles from './WordRotator.module.scss';
 
 import LoveEmoji from '../assets/twemoji/1f970.svg';
 
+const ROTATE_MS = 3000;
+const ENTRANCE_MS = 600;
+
 export default function WordRotator() {
   const words = ['TypeScript', 'React', 'Laravel', 'Minecraft', 'Docker'];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
-    }, 3000);
-    return () => clearInterval(interval);
+    let intervalId: number | undefined;
+    const startId = window.setTimeout(() => {
+      intervalId = window.setInterval(() => {
+        setIndex((prev) => (prev + 1) % words.length);
+      }, ROTATE_MS);
+    }, ENTRANCE_MS);
+    return () => {
+      window.clearTimeout(startId);
+      if (intervalId !== undefined) window.clearInterval(intervalId);
+    };
   }, []);
 
   const currentWord = words[index];
   const characters = currentWord.split('');
 
   return (
-    <motion.div 
+    <motion.div
       layout
       className={styles.wordContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.45, ease: 'easeOut' }}
     >
-      <motion.span layout className={styles.staticWord}>I love</motion.span>
+      <motion.span layout className={styles.staticWord}>
+        I love
+      </motion.span>
       <AnimatePresence mode="popLayout">
         <motion.div
           key={words[index]}
