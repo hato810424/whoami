@@ -7,6 +7,7 @@ import {
   IconCoffee,
   IconBrandDocker,
   IconBrandPnpm,
+IconHammer,
 } from '@tabler/icons-react';
 import styles from './FavoriteStacks.module.scss';
 
@@ -31,13 +32,18 @@ const favoriteTechStacks = [
 	},
   // Web Development
   {
-		name: 'React',
-		icon: <IconBrandReact size={18} stroke={1.75} />,
-		category: 'Web Development',
-	},
+    name: 'Vike',
+    icon: <IconHammer size={18} stroke={1.75} />,
+    category: 'Web Development',
+  },
   {
 		name: 'Vite',
 		icon: <IconBrandVite size={18} stroke={1.75} />,
+		category: 'Web Development',
+	},
+  {
+		name: 'React',
+		icon: <IconBrandReact size={18} stroke={1.75} />,
 		category: 'Web Development',
 	},
   {
