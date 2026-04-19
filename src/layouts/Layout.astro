@@ -26,6 +26,10 @@ const noIndex = props.noIndex || true;
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url.toString()} />
 		{import.meta.env.PROD && <script defer src="https://trk.hato810424.dev/script.js" data-website-id="ebd24f3e-5d4a-40ef-826a-d8a4ebbc42e3"></script>}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<slot />
@@ -41,7 +45,7 @@ html {
 
 body {
 	margin: 0;
-	font-family: 'Inter Variable', 'Noto Sans JP', sans-serif;
+	font-family: 'Inter', 'Inter Variable', 'Noto Sans JP', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
