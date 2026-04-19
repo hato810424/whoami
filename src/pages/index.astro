@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import icon from '../assets/icon.png';
 import { IconExternalLink } from '@tabler/icons-react';
 import WordRotator from '../components/WordRotator.jsx';
-import { GitHubCalendar } from 'react-github-calendar';
+import GitHubCalendarScrollEnd from '../components/GitHubCalendarScrollEnd.tsx';
 import FavoriteStacks from '../components/FavoriteStacks.tsx';
 import Footer from '../components/Footer.astro';
 
@@ -81,7 +81,7 @@ import McResourcesImage from "../assets/works/mc-resources.png";
 			<FavoriteStacks client:load />
 		</div>
 		<div class="github-calendar">
-			<GitHubCalendar
+			<GitHubCalendarScrollEnd
 			  username="hato810424"
 				blockSize={10}
 				blockMargin={3}
