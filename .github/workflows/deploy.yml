@@ -1,8 +1,9 @@
 name: Deploy (self-hosted docker)
 
 on:
-  push:
-    branches: [master]
+  # push:
+  #   branches: [master]
+  workflow_dispatch:
 
 jobs:
   deploy:
