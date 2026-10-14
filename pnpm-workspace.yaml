@@ -1,3 +1,13 @@
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  sharp: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - miniflare@5.20261012.0-beta
+  - wrangler@4.151.0
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - esbuild
   - sharp
+  - workerd
